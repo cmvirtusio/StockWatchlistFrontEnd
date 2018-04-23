@@ -12,6 +12,23 @@ import { WatchlistsComponent } from './components/watchlists/watchlists.componen
 import { RegisterComponent } from './components/register/register.component';
 
 
+
+
+//enable twowaybinding
+import { FormsModule } from '@angular/forms';
+
+
+//This Enables http calls;
+import { HttpClientModule } from '@angular/common/http';
+
+//my services
+import { AlphavantageService } from './services/alphavantage.service';
+import { AuthService } from './services/auth.service';
+import { FormvalidationService } from './services/formvalidation.service';
+
+//npm install angular2-flash-messages --save
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +41,12 @@ import { RegisterComponent } from './components/register/register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    FlashMessagesModule.forRoot()
   ],
-  providers: [],
+  providers: [AlphavantageService,AuthService,FormvalidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
