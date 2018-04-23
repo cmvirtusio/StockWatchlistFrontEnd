@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 export class AuthService {
   serverurl:string; // url of backend;
   constructor(private _http: HttpClient) {
+    //Question about mixed sites
     this.serverurl = 'http://watchlistrest-env.4x3xwqnm49.us-east-2.elasticbeanstalk.com/';
     //this.serverurl = 'http://localhost:8080/';
   }
