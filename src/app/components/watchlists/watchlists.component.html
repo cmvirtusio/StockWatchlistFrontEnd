@@ -1,3 +1,64 @@
-<p>
-  watchlists works!
-</p>
+<!-- <select [(ngModel)]="curWatchlist" (focus)="updatewatchlist()">
+  <option *ngFor="let wls of curUserWatchlists" [value]="wls.name">{{ wls.name }}</option>
+</select> -->
+
+
+<style>
+  .deletebutton {
+    border-radius: 8px;
+    background-color: #F08080;
+    color: white;
+    display: none;
+  }
+
+  .list-group-item:hover .deletebutton {
+    display: inline;
+  }
+</style>
+<div class="form-group">
+  <select class="btn btn-default btn-lg btn-block" [(ngModel)]="curWatchlist" (ngModelChange)="onchangedropdownselect(curWatchlist)">
+    <option *ngFor="let wls of curUserWatchlists" [ngValue]="wls">{{ wls.name }}</option>
+  </select>
+
+</div>
+
+<div class="form-group">
+  <a class="btn btn-success" (click)="initiatecreate()">Create New Watchlist</a>
+  <a class="btn btn-danger" (click)="deletecurrentwatchlist()">Delete Current Watchlist</a>
+  <!-- <a class="btn btn-danger" (click)="updatecurrentwatchlist()">Update Current Watchlist</a> -->
+</div>
+
+<div *ngIf="created" class="alert alert-success box-msg" role="alert">
+  <form class="form-signin" (submit)="createwatchlist()">
+    <div class="form-group">
+      <label for="Username">Watchlist Name</label>
+      <input type="text" class="form-control" placeholder="Enter Watchlist Name" [(ngModel)]="tempwlname" name="tempwlname">
+    </div>
+    <input class="btn btn-lg btn-primary" type="submit" value="Create">
+  </form>
+</div>
+
+<div *ngIf="curUserWatchlists?.length > 0">
+  <div style="float: left; width: 30%">
+    <div class="form-group">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="SPY" [(ngModel)]="curSymbol">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" (click)="addstock()">Add</button>
+        </span>
+      </div>
+    </div>
+    <div>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let stock of curTickers" (click)="getValuesFromWL(stock)" style="cursor: pointer;">
+          {{ stock }}
+          <button class="deletebutton" style="float: right;" (click)="removestock(stock)">x</button>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <div style="float: left; width: 70%">
+
+  </div>
+</div>

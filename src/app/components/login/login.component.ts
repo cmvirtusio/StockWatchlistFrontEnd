@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+//to navigate to a specific route initialized in app-routing.module.ts
 import { Router } from '@angular/router';
+//Alert, but for users
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.loginUser(user).subscribe(
       suc => {
+        this.authService.saveUser(user.username);
         this.authService.saveToken(suc['access_token']);
         this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 5000});
         this.router.navigate(['dashboard']);

@@ -48,4 +48,13 @@ export class AuthService {
     localStorage.setItem('token',token);
   }
 
+  saveUser(username){
+    localStorage.setItem('username',username);
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+  }
+
 }

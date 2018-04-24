@@ -15,9 +15,9 @@
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
           <a class="nav-link" [routerLink]="['/']">Home <span></span></a>
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
           <a class="nav-link" [routerLink]="['/dashboard']">Dashboard </a>
-        </li>
+        </li> -->
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
           <a class="nav-link" [routerLink]="['/watchlists']">Watchlists </a>
         </li>
@@ -28,6 +28,9 @@
         </li>
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
           <a class="nav-link" [routerLink]="['/register']">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="onLogoutClick()" >Logout</a>
         </li>
       </ul>
     </div>
