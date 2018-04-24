@@ -52,6 +52,14 @@ export class AuthService {
     localStorage.setItem('username',username);
   }
 
+  isOnline(){
+    if(localStorage.getItem('token')===null){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('username');

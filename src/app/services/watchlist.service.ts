@@ -35,8 +35,6 @@ export class WatchlistService {
   }
 
   deleteWatchlist(wl){
-
-    //http://watchlistrest-env.4x3xwqnm49.us-east-2.elasticbeanstalk.com/watchlist/11?access_token=2e7a2218-efab-43d0-8635-6afbf87fcfd9
     const url = this.serverurl+'watchlist/'+wl.id;
     const options = {
       headers: new HttpHeaders({

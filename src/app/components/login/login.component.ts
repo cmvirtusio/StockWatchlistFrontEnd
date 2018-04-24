@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.authService.saveUser(user.username);
         this.authService.saveToken(suc['access_token']);
         this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 5000});
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['watchlists']);
       },
       err => {
         if(!this.saveUsername){
