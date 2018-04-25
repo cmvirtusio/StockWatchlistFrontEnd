@@ -9,6 +9,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  isCollapsed: boolean = true;
   constructor(
     public authService : AuthService,
     private flash : FlashMessagesService,
@@ -20,6 +21,10 @@ export class NavbarComponent implements OnInit {
   onLogoutClick(){
     this.flash.show('You are now logged out', {cssClass: 'alert-success', timeout: 5000});
     this.authService.logout();
+  }
+
+  toggleCollapse(): void {
+    this.isCollapsed = !this.isCollapsed;
   }
 
 }

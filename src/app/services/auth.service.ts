@@ -48,10 +48,6 @@ export class AuthService {
     localStorage.setItem('token',token);
   }
 
-  saveUser(username){
-    localStorage.setItem('username',username);
-  }
-
   isOnline(){
     if(localStorage.getItem('token')===null){
       return false;
@@ -62,7 +58,6 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('token');
-    localStorage.removeItem('username');
   }
 
 }
