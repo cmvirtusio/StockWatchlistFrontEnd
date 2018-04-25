@@ -13,8 +13,6 @@ import { WatchlistsComponent } from './components/watchlists/watchlists.componen
 import { RegisterComponent } from './components/register/register.component';
 
 
-
-
 //enable twowaybinding
 import { FormsModule } from '@angular/forms';
 
@@ -27,6 +25,7 @@ import { AlphavantageService } from './services/alphavantage.service';
 import { AuthService } from './services/auth.service';
 import { FormvalidationService } from './services/formvalidation.service';
 import { WatchlistService } from './services/watchlist.service';
+import { AuthGuard } from './auth/auth.guard';
 
 //npm install angular2-flash-messages --save
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -48,7 +47,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [AlphavantageService,AuthService,FormvalidationService, WatchlistService],
+  providers: [AlphavantageService,AuthService,FormvalidationService, WatchlistService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

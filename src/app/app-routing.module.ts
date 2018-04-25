@@ -8,18 +8,19 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WatchlistsComponent } from './components/watchlists/watchlists.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   //home
-  {path:'', component: HomeComponent},
+  { path: '', component: HomeComponent },
   //login
-  {path:'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
   //dashboard
-  {path:'dashboard', component: DashboardComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   //watchlists (This should be protected)
-  {path:'watchlists', component: WatchlistsComponent},
+  { path: 'watchlists', component: WatchlistsComponent, canActivate: [AuthGuard] },
   //register
-  {path:'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
