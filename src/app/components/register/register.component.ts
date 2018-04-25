@@ -48,7 +48,6 @@ export class RegisterComponent implements OnInit {
     }
     //Run username password through regex
     const regex = /^[a-zA-Z0-9.\-_$@*!]{8,32}$/;
-    console.log("hello");
     if(!regex.test(registerObject.username)){
       this.flash.show('Username not valid must be 8-32 in length and some special characters', { cssClass: 'alert-danger', timeout: 3000 });
       return false;
